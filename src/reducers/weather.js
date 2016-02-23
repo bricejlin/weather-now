@@ -1,4 +1,4 @@
-import { RECEIVE_WEATHER_DATA } from '../constants/ActionTypes';
+import { RECEIVE_WEATHER_DATA } from '../constants';
 
 export default function now(state = {}, action) {
   switch (action.type) {

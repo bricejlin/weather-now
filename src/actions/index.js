@@ -1,5 +1,5 @@
 import weather from '../api/weather';
-import * as types from '../constants/ActionTypes';
+import * as types from '../constants';
 
 function receiveWeatherData(data) {
   return {
