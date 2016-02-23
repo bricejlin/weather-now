@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "mocha --compilers js:babel-core/register --recursive"
+    "test": "istanbul cover node_modules/mocha/bin/_mocha && codecov"
   },
   "keywords": [
     "weather",
@@ -21,7 +21,9 @@
     "babel-preset-react-hmre": "^1.1.0",
     "babel-register": "^6.5.2",
     "chai": "^3.5.0",
+    "codecov": "^1.0.1",
     "express": "^4.13.4",
+    "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "redux-logger": "^2.6.0",
     "webpack": "^1.12.14",
