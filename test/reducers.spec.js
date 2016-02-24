@@ -7,7 +7,7 @@ describe('REDUCERS', () => {
     it('should return default state if action is undefined', () => {
       const initialState = {};
       const nextState = weather(initialState, 'BLAH');
-      expect(nextState).to.deep.equal(initialState);
+      expect(nextState).to.eql(initialState);
     });
   });
 });
