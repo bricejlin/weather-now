@@ -12,5 +12,6 @@
 - Babel
 - React Router
 - Mocha
+- Expect
 
 ### Every PR must be accompanied by a test
