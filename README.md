@@ -11,5 +11,6 @@
 - Webpack
 - Babel
 - React Router
+- Mocha
 
 ### Every PR must be accompanied by a test
