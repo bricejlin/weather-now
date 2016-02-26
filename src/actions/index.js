@@ -1,18 +1,33 @@
 import weather from '../api/weather';
 import * as types from '../constants';
 
-function receiveWeatherData(data) {
+function receiveWeatherDataSuccess(data) {
   return {
-    type: types.RECEIVE_WEATHER_DATA,
-    data
+    type: types.RECEIVE_WEATHER_DATA_SUCCESS,
+    payload: {
+      data
+    }
   };
 }
 
-export function getWeatherData(cityName) {
+function receiveWeatherDataFailure(error) {
+  return {
+    type: types.RECEIVE_WEATHER_DATA_FAILURE,
+    payload: {
+      status: error.status,
+      statusText: error.statusText
+    }
+  };
+}
+
+export function getWeatherData(coord) {
   return dispatch => {
-    weather.getWeatherData(cityName)
+    weather.getWeatherData(coord)
     .then(data => {
-      dispatch(receiveWeatherData(data));
+      dispatch(receiveWeatherDataSuccess(data));
+    })
+    .catch(err => {
+      dispatch(receiveWeatherDataFailure(err));
     });
   }
 }

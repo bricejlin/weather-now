@@ -1,10 +1,28 @@
-import { RECEIVE_WEATHER_DATA } from '../constants';
-import objectAssign from 'object-assign';
+import {
+  RECEIVE_WEATHER_DATA_SUCCESS,
+  RECEIVE_WEATHER_DATA_FAILURE
+} from '../constants';
 
-export default function now(state = {}, action) {
+const initialState = {
+  data: {
+    currently: {
+      temperature: 0
+    }
+  },
+  statusText: null,
+};
+
+export default function now(state = initialState, action) {
   switch (action.type) {
-  case RECEIVE_WEATHER_DATA:
-    return objectAssign({}, state, action.data);
+  case RECEIVE_WEATHER_DATA_SUCCESS:
+    return Object.assign({}, state, {
+      statusText: `Successfully fetched weather!`,
+      data: action.payload.data
+    });
+  case RECEIVE_WEATHER_DATA_FAILURE:
+    return Object.assign({}, state, {
+      statusText: `Error: ${action.payload.status} ${action.payload.statusText}`
+    });
   default:
     return state;
   }
