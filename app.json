@@ -1,0 +1,13 @@
+{
+  "name": "weather-now",
+  "scripts": {
+  },
+  "env": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
