@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "mocha",
-    "dev": "mocha -w",
+    "test:watch": "npm test -- -w",
     "test-cov": "istanbul cover _mocha  --report lcovonly -- --compilers js:babel-register && codecov"
   },
   "keywords": [
@@ -22,8 +22,8 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.0",
     "babel-register": "^6.5.2",
-    "chai": "^3.5.0",
     "codecov": "^1.0.1",
+    "expect": "^1.14.0",
     "express": "^4.13.4",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^2.4.5",
