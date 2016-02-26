@@ -8,8 +8,8 @@ describe('REDUCERS', () => {
     it('should return default state if action is undefined', () => {
       const initialState = {
         data: {
-          main: {
-            temp: 0
+          currently: {
+            temperature: 0
           }
         },
         statusText: null
@@ -23,15 +23,15 @@ describe('REDUCERS', () => {
         type: types.RECEIVE_WEATHER_DATA_SUCCESS,
         payload: {
           data: {
-            main: {
-              temp: 39
+            currently: {
+              temperature: 39
             }
           }
         }
       };
 
       const nextState = weather({}, action);
-      expect(nextState.data.main.temp).toEqual(39);
+      expect(nextState.data.currently.temperature).toEqual(39);
     });
 
     it('should return new state from a RECEIVE_WEATHER_DATA_FAILURE action', () => {

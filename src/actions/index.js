@@ -20,9 +20,9 @@ function receiveWeatherDataFailure(error) {
   };
 }
 
-export function getWeatherData(cityName) {
+export function getWeatherData(coord) {
   return dispatch => {
-    weather.getWeatherData(cityName)
+    weather.getWeatherData(coord)
     .then(data => {
       dispatch(receiveWeatherDataSuccess(data));
     })

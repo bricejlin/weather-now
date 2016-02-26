@@ -8,7 +8,7 @@ export default class WeatherReport extends Component {
       <div>
         {statusText ? <div>{statusText}</div> : null}
         <div>
-          <h2>New York {data.main.temp} °F</h2>
+          <h2>New York {data.currently.temperature} °F</h2>
         </div>
       </div>
     );

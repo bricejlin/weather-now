@@ -18,7 +18,11 @@ const store = createStore(
   applyMiddleware(...middleware)
 );
 
-store.dispatch(getWeatherData('New York'));
+// New York
+store.dispatch(getWeatherData({
+  lat: '40.7127840',
+  lon: '-74.0059410'
+}));
 
 render(
   <Provider store={store}>

@@ -5,8 +5,8 @@ import {
 
 const initialState = {
   data: {
-    main: {
-      temp: 0
+    currently: {
+      temperature: 0
     }
   },
   statusText: null,
