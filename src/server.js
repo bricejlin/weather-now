@@ -1,18 +1,22 @@
 require('newrelic');
 var path = require('path');
 var requestProxy = require('express-request-proxy');
-var webpack = require('webpack');
-var webpackDevMiddleware = require('webpack-dev-middleware');
-var webpackHotMiddleware = require('webpack-hot-middleware');
-var config = require('../webpack.config');
 
 var publicPath = path.resolve(__dirname, '../public');
-var app = require('express')();
+var express = require('express');
+var app = express();
 var port = process.env.PORT || 1337;
 
-var compiler = webpack(config);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
-app.use(webpackHotMiddleware(compiler));
+var isProduction = process.env.NODE_ENV === 'production';
+
+if (!isProduction) {
+  var config = require('../webpack.config');
+  var compiler = require('webpack')(config);
+  app.use(require('webpack-dev-middleware')(compiler, { noInfo: true, publicPath: config.output.publicPath }));
+  app.use(require('webpack-hot-middleware')(compiler));
+} else {
+  app.use(express.static(publicPath));
+}
 
 app.get('/', function (req, res) {
   res.sendFile(publicPath + '/index.html');
@@ -28,6 +32,6 @@ app.listen(port, function (error) {
   if (error) {
     console.error(error);
   } else {
-    console.info('==> 🌎  Listening on port %s.', port);
+    console.info('==> 🌎  Listening on port %s in %s mode', port, process.env.NODE_ENV);
   }
 });
