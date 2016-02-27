@@ -1,3 +1,4 @@
+require('newrelic');
 var path = require('path');
 var requestProxy = require('express-request-proxy');
 var webpack = require('webpack');
