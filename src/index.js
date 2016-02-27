@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers'
 import { getWeatherData } from './actions'
 import Root from './containers/Root';
+import 'newrelic';
 
 const middleware = process.env.NODE_ENV === 'production' ?
   [ thunk ] :
