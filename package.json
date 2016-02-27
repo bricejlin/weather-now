@@ -4,7 +4,8 @@
   "description": "Real-time weather reporting for your device's exact location / time",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "NODE_ENV=production node src/server.js",
+    "start:dev": "NODE_ENV=development node src/server.js",
     "test": "mocha",
     "test:watch": "npm test -- -w",
     "test-cov": "istanbul cover _mocha  --report lcovonly -- --compilers js:babel-register && codecov",
