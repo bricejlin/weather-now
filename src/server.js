@@ -18,6 +18,8 @@ if (!isProduction) {
   app.use(express.static(publicPath));
 }
 
+app.use(require('express-bunyan-logger')());
+
 app.get('/', function (req, res) {
   res.sendFile(publicPath + '/index.html');
 });
