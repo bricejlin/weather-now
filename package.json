@@ -4,13 +4,13 @@
   "description": "Real-time weather reporting for your device's exact location / time",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node src/server.js",
-    "start:dev": "NODE_ENV=development node src/server.js",
+    "start": "NODE_ENV=development node src/server.js",
+    "start:prod": "NODE_ENV=production node src/server.js",
     "test": "mocha",
     "test:watch": "npm test -- -w",
     "test-cov": "istanbul cover _mocha  --report lcovonly -- --compilers js:babel-register && codecov",
-    "deploy": "NODE_ENV=production webpack -p --config webpack.prod.config.js",
-    "postinstall": "npm run deploy"
+    "build": "npm run clean && NODE_ENV=production webpack -p --config webpack.prod.config.js",
+    "clean": "rm -rf build"
   },
   "engines": {
     "node": "5.3.0"
