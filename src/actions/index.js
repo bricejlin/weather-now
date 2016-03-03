@@ -29,5 +29,5 @@ export function getWeatherData(coord) {
     .catch(err => {
       dispatch(receiveWeatherDataFailure(err));
     });
-  }
+  };
 }

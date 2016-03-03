@@ -16,9 +16,8 @@ if (!isProduction) {
   app.use(require('webpack-hot-middleware')(compiler));
 } else {
   app.use(express.static(publicPath));
+  app.use(require('express-bunyan-logger')());
 }
-
-app.use(require('express-bunyan-logger')());
 
 app.get('/', function (req, res) {
   res.sendFile(publicPath + '/index.html');
