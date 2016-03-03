@@ -1,26 +1,16 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import logger from 'redux-logger';
-import thunk from 'redux-thunk';
-import rootReducer from './reducers';
+
 import { getWeatherData } from './actions';
+import configureStore from './store';
 import Root from './containers/Root';
 import debugCreator from 'debug';
 
 const debug = debugCreator('geolocation');
 
-
-const middleware = process.env.NODE_ENV === 'production' ?
-  [ thunk ] :
-  [ thunk, logger() ];
-
-const store = createStore(
-  rootReducer,
-  applyMiddleware(...middleware)
-);
+const store = configureStore();
 
 function success(pos) {
   const lat = pos.coords.latitude;
@@ -32,8 +22,6 @@ function success(pos) {
 }
 
 function error() {
-  console.log('Unable retrieve user location. Defaulting to NY');
-
   debug('Failed to retrieve location');
 
   store.dispatch(getWeatherData({

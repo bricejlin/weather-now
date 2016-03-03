@@ -4,6 +4,9 @@
     "node": true,
     "mocha": true
   },
+  "globals": {
+    "Promise": true
+  },
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaVersion": 6,

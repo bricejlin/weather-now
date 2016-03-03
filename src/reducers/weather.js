@@ -9,7 +9,7 @@ const initialState = {
       temperature: 0
     }
   },
-  statusText: null,
+  statusText: null
 };
 
 export default function now(state = initialState, action) {

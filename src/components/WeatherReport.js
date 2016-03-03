@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 export default class WeatherReport extends Component {
   render() {
@@ -14,3 +14,8 @@ export default class WeatherReport extends Component {
     );
   }
 }
+
+WeatherReport.propTypes = {
+  data: PropTypes.object.isRequired,
+  statusText: PropTypes.string
+};
