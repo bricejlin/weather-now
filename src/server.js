@@ -4,10 +4,13 @@ var requestProxy = require('express-request-proxy');
 
 var publicPath = path.resolve(__dirname, '../public');
 var express = require('express');
+
+var isProduction = process.env.NODE_ENV === 'production';
+
 var app = express();
 var port = process.env.PORT || 1337;
 
-var isProduction = process.env.NODE_ENV === 'production';
+app.use(require('compression')());
 
 if (!isProduction) {
   var config = require('../webpack.dev.config');
@@ -26,7 +29,7 @@ app.get('/', function (req, res) {
 // Since forecast.io doesn't have necessary CORS headers set, we can't
 // make a request on the client side and must resort to using a proxy
 app.use(/^\/weather\/(.+)$/, requestProxy({
-	url: "https://api.forecast.io/forecast/07eb645519c5c9ced960d44ba4e53fad/:0",
+  url: "https://api.forecast.io/forecast/07eb645519c5c9ced960d44ba4e53fad/:0",
 }));
 
 app.listen(port, function (error) {
