@@ -2,11 +2,48 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <title>weatherNOW</title>
+    <style>
+    body {
+      font-family: 'Yantramanav';
+      background-color: #74B5EF;
+    }
+    .degrees-container {
+      text-align: center;
+      color: white;
+      font-size: 200%;
+    }
+    .degrees-container .logo {
+      font-size: 55%;
+      font-weight: 700;
+    }
+    .degrees-container h1 {
+      font-size: 150%;
+      font-weight: 100;
+      margin: 0;
+    }
+    .degrees-container h1 .number {
+      font-weight: 400;
+    }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <script type="text/javascript">
+     WebFontConfig = {
+      google: { families: [ 'Yantramanav:400,100,700:latin' ] }
+     };
+     (function() {
+       var wf = document.createElement('script');
+       wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+       wf.type = 'text/javascript';
+       wf.async = 'true';
+       var s = document.getElementsByTagName('script')[0];
+       s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
     <script src="/static/vendor.js"></script>
-    <script src="/static/main.js"></script>
+    <script async src="/static/main.js"></script>
   </body>
 </html>
