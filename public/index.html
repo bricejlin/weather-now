@@ -2,21 +2,25 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Yantramanav:100,400,700' rel='stylesheet' type='text/css'>
     <meta name=viewport content="width=device-width, initial-scale=1">
     <title>weatherNOW</title>
     <style>
     body {
       font-family: 'Yantramanav';
+      color: white;
       background-color: #74B5EF;
     }
     .degrees-container {
       text-align: center;
-      color: white;
       font-size: 200%;
+      margin-bottom: 1em;
     }
-    .degrees-container .logo {
-      font-size: 55%;
+    .logo {
+      text-align: center;
       font-weight: 700;
+      margin-top: 2em;
     }
     .degrees-container h1 {
       font-size: 150%;
@@ -30,19 +34,6 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/javascript">
-     WebFontConfig = {
-      google: { families: [ 'Yantramanav:400,100,700:latin' ] }
-     };
-     (function() {
-       var wf = document.createElement('script');
-       wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-       wf.type = 'text/javascript';
-       wf.async = 'true';
-       var s = document.getElementsByTagName('script')[0];
-       s.parentNode.insertBefore(wf, s);
-      })();
-    </script>
     <script src="/static/vendor.js"></script>
     <script async src="/static/main.js"></script>
   </body>
