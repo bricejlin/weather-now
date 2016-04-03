@@ -1,16 +1,19 @@
+import request from 'superagent';
+
 export default {
   getWeatherData(coord) {
     const url = `/weather/${coord.lat},${coord.lon}`;
-    return fetch(url)
-      .then(r => {
-        if (!r.ok) {
-          return Promise.reject({
-            status: r.status,
-            statusText: r.statusText
-          });
-        }
-        return r;
-      })
-      .then(r => r.json());
+
+    return new Promise((resolve, reject) => {
+      request
+        .get(url)
+        .end((err, res) => {
+          if (err || !res.ok) {
+            reject('Failed to retrieve data');
+          } else {
+            resolve(res.body);
+          }
+        });
+    });
   }
 };
