@@ -3,13 +3,11 @@ import React, { Component, PropTypes } from 'react';
 export default class WeatherReport extends Component {
 
   render() {
-    const { data, statusText } = this.props;
+    const { data } = this.props;
 
     return (
-      <div>
-        {statusText ? <div>{statusText}</div> : null}
-        <div className="degrees-container">
-          <span className="logo">weatherNOW</span>
+      <div className="container">
+        <div className="degrees-container center">
           <h1>
             <span>{ data.timezone ? data.timezone.split('/')[1].replace('_', ' ') : ''} </span>
             <span className="number">{data.currently.temperature}</span>
@@ -22,6 +20,10 @@ export default class WeatherReport extends Component {
 }
 
 WeatherReport.propTypes = {
-  data: PropTypes.object.isRequired,
-  statusText: PropTypes.string
+  data: PropTypes.shape({
+    timezone: PropTypes.string.isRequired,
+    currently: PropTypes.shape({
+      temperature: PropTypes.number.isRequired
+    })
+  })
 };

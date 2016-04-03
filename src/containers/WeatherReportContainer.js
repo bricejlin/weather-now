@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import WeatherReport from '../components/WeatherReport';
+import WeatherReport from 'components/WeatherReport';
 
 class WeatherReportContainer extends Component {
 
@@ -8,13 +8,18 @@ class WeatherReportContainer extends Component {
     const { weather } = this.props;
 
     return (
-      <WeatherReport {...weather} />
+      <div className="container">
+        <div className="logo center">weatherNOW</div>
+        {weather.fetched ?
+          <WeatherReport {...weather} /> :
+          <div className="center">Fetching weather...</div>}
+      </div>
     );
   }
 }
 
 WeatherReportContainer.propTypes = {
-  weather: PropTypes.object.isRequired
+  weather: PropTypes.object
 };
 
 const mapStateToProps = (state) => {

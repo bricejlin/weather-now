@@ -44,5 +44,8 @@ module.exports = {
         include: __dirname
       }
     ]
+  },
+  resolve: {
+    modulesDirectories: ['src', 'test', 'node_modules']
   }
 };
