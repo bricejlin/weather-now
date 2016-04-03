@@ -38,6 +38,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-react-hmre": "^1.1.0",
     "babel-register": "^6.5.2",
+    "d3": "^3.5.16",
     "express": "^4.13.4",
     "express-bunyan-logger": "^1.2.0",
     "express-request-proxy": "^1.2.0",
@@ -48,6 +49,7 @@
     "redux": "^3.3.1",
     "redux-logger": "^2.6.0",
     "redux-thunk": "^1.0.3",
+    "superagent": "^1.8.3",
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.7.1"

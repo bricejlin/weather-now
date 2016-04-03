@@ -4,9 +4,7 @@ import WeatherReportContainer from './WeatherReportContainer';
 export default class Root extends Component {
   render() {
     return (
-      <div>
-        <WeatherReportContainer />
-      </div>
+      <WeatherReportContainer />
     );
   }
 }
