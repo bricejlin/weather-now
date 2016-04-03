@@ -1,15 +1,11 @@
 import expect from 'expect';
 
 import * as types from '../src/constants';
-import weather from '../src/reducers/weather';
+import weather, { initialState } from '../src/reducers/weather';
 
 describe('REDUCERS', () => {
   describe('Weather Reducer', () => {
     it('should return default state if action is undefined', () => {
-      const initialState = {
-        data: {},
-        fetched: false
-      };
       const nextState = weather(undefined, 'BLAH');
       expect(nextState).toEqual(initialState);
     });
@@ -19,6 +15,9 @@ describe('REDUCERS', () => {
         type: types.RECEIVE_WEATHER_DATA_SUCCESS,
         payload: {
           data: {
+            daily: {
+              data: []
+            },
             currently: {
               temperature: 39
             }
@@ -26,8 +25,8 @@ describe('REDUCERS', () => {
         }
       };
 
-      const nextState = weather({}, action);
-      expect(nextState.data.currently.temperature).toEqual(39);
+      const nextState = weather(undefined, action);
+      expect(nextState.data.currently).toEqual(39);
     });
   });
 });
