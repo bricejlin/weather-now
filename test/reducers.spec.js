@@ -7,12 +7,8 @@ describe('REDUCERS', () => {
   describe('Weather Reducer', () => {
     it('should return default state if action is undefined', () => {
       const initialState = {
-        data: {
-          currently: {
-            temperature: 0
-          }
-        },
-        statusText: null
+        data: {},
+        fetched: false
       };
       const nextState = weather(undefined, 'BLAH');
       expect(nextState).toEqual(initialState);
@@ -32,19 +28,6 @@ describe('REDUCERS', () => {
 
       const nextState = weather({}, action);
       expect(nextState.data.currently.temperature).toEqual(39);
-    });
-
-    it('should return new state from a RECEIVE_WEATHER_DATA_FAILURE action', () => {
-      const action = {
-        type: types.RECEIVE_WEATHER_DATA_FAILURE,
-        payload: {
-          status: '401',
-          statusText: 'Unauthorized'
-        }
-      };
-
-      const nextState = weather({}, action);
-      expect(nextState.statusText).toEqual('Error: 401 Unauthorized');
     });
   });
 });

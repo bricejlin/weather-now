@@ -4,25 +4,19 @@ import {
 } from '../constants';
 
 const initialState = {
-  data: {
-    currently: {
-      temperature: 0
-    }
-  },
-  statusText: null
+  data: {},
+  fetched: false
 };
 
 export default function now(state = initialState, action) {
   switch (action.type) {
   case RECEIVE_WEATHER_DATA_SUCCESS:
     return Object.assign({}, state, {
-      statusText: `Successfully fetched weather!`,
-      data: action.payload.data
+      data: action.payload.data,
+      fetched: true
     });
   case RECEIVE_WEATHER_DATA_FAILURE:
-    return Object.assign({}, state, {
-      statusText: `Error: ${action.payload.status} ${action.payload.statusText}`
-    });
+    return state;
   default:
     return state;
   }
