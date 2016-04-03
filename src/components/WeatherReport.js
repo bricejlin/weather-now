@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import BarChart from 'components/charts/BarChart';
 
 export default class WeatherReport extends Component {
 
@@ -10,9 +11,13 @@ export default class WeatherReport extends Component {
         <div className="degrees-container center">
           <h1>
             <span>{ data.timezone ? data.timezone.split('/')[1].replace('_', ' ') : ''} </span>
-            <span className="number">{data.currently.temperature}</span>
+            <span className="number">{data.currently}</span>
             <span> °F</span>
           </h1>
+        </div>
+
+        <div className="bar-chart-container">
+          <BarChart data={data.daily} width={600} height={300} />
         </div>
       </div>
     );
@@ -22,8 +27,7 @@ export default class WeatherReport extends Component {
 WeatherReport.propTypes = {
   data: PropTypes.shape({
     timezone: PropTypes.string.isRequired,
-    currently: PropTypes.shape({
-      temperature: PropTypes.number.isRequired
-    })
+    daily: PropTypes.arrayOf(PropTypes.number).isRequired,
+    currently: PropTypes.number.isRequired
   })
 };
