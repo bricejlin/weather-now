@@ -8,7 +8,10 @@ class WeatherReportContainer extends Component {
     const { weather } = this.props;
 
     return (
-      <WeatherReport {...weather} />
+      <div className="container">
+        <div className="logo">weatherNOW</div>
+        { weather ? <WeatherReport {...weather} /> : null }
+      </div>
     );
   }
 }

@@ -19,6 +19,7 @@
     "react"
   ],
   "rules": {
-    "semi": 2
+    "semi": 2,
+    "no-console": 1
   }
 }

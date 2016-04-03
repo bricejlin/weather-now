@@ -7,7 +7,11 @@ const initialState = {
   data: {
     currently: {
       temperature: 0
-    }
+    },
+    daily: {
+      data: []
+    },
+    timezone: ''
   },
   statusText: null
 };
