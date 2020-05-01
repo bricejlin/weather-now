@@ -10,7 +10,9 @@
     "test:watch": "npm test -- -w",
     "test-cov": "istanbul cover _mocha  --report lcovonly -- --compilers js:babel-register && codecov",
     "build": "npm run clean && NODE_ENV=production webpack -p --config webpack.prod.config.js",
-    "clean": "rm -rf build"
+    "clean": "rm -rf build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": "5.3.0"
@@ -55,6 +57,8 @@
     "superagent": "^1.8.3",
     "webpack": "^1.12.14",
     "webpack-dev-middleware": "^1.5.1",
-    "webpack-hot-middleware": "^2.7.1"
-  }
+    "webpack-hot-middleware": "^2.7.1",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
