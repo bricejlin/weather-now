@@ -26,7 +26,7 @@
   "author": "Brice Lin <bricejlin@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "codecov": "^1.0.1",
+    "codecov": "^3.7.1",
     "eslint": "^2.2.0",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-react": "^4.1.0",
