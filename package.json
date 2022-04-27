@@ -44,7 +44,7 @@
     "babel-register": "^6.5.2",
     "express": "^4.13.4",
     "express-bunyan-logger": "^1.2.0",
-    "express-request-proxy": "^1.2.0",
+    "express-request-proxy": "^2.1.0",
     "newrelic": "^1.25.4",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
